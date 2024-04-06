@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: healeksa <healeksa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/02 18:02:14 by healeksa          #+#    #+#             */
-/*   Updated: 2024/04/06 21:03:09 by healeksa         ###   ########.fr       */
+/*   Created: 2024/01/27 17:08:43 by healeksa          #+#    #+#             */
+/*   Updated: 2024/04/04 18:13:46 by healeksa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/headers/libft.h"
-#include <signal.h>
-#include <stdio.h>
-#include <unistd.h>
+#include "headers/libft.h"
 
-int	main(void)
+int	ft_putchar_fd(char c, int fd)
 {
-	printf("The process id of server is %d\n", (int)getpid());
-	// signal(SIGUSR1, process);
-	// signal(SIGUSR2, process);
-	// printf("\033[0;32m");
-	while (1)
-		;
+	return (write(fd, &c, 1));
 }

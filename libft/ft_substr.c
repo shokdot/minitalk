@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: healeksa <healeksa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/02 18:02:14 by healeksa          #+#    #+#             */
-/*   Updated: 2024/04/06 21:03:09 by healeksa         ###   ########.fr       */
+/*   Created: 2024/01/28 11:39:39 by healeksa          #+#    #+#             */
+/*   Updated: 2024/04/04 18:13:46 by healeksa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/headers/libft.h"
-#include <signal.h>
-#include <stdio.h>
-#include <unistd.h>
+#include "headers/libft.h"
 
-int	main(void)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	printf("The process id of server is %d\n", (int)getpid());
-	// signal(SIGUSR1, process);
-	// signal(SIGUSR2, process);
-	// printf("\033[0;32m");
-	while (1)
-		;
+	char	*substr;
+
+	if (!s)
+		return (NULL);
+	if (start > ft_strlen(s))
+		return (ft_strdup(""));
+	if (len > ft_strlen(s))
+		len = ft_strlen(s);
+	substr = malloc((len + 1) * sizeof(char));
+	if (!substr)
+		return (NULL);
+	ft_strlcpy(substr, s + start, len + 1);
+	return (substr);
 }

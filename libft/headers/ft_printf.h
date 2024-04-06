@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: healeksa <healeksa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/02 18:02:14 by healeksa          #+#    #+#             */
-/*   Updated: 2024/04/06 21:03:09 by healeksa         ###   ########.fr       */
+/*   Created: 2024/02/05 12:55:28 by healeksa          #+#    #+#             */
+/*   Updated: 2024/04/04 18:14:12 by healeksa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/headers/libft.h"
-#include <signal.h>
-#include <stdio.h>
-#include <unistd.h>
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int	main(void)
-{
-	printf("The process id of server is %d\n", (int)getpid());
-	// signal(SIGUSR1, process);
-	// signal(SIGUSR2, process);
-	// printf("\033[0;32m");
-	while (1)
-		;
-}
+# include "libft.h"
+# include <stdarg.h>
+# include <unistd.h>
+
+int	ft_printf(const char *s, ...);
+int	ft_uputnbr(unsigned long n);
+int	ft_print_hex(unsigned long long n, char format);
+int	ft_print_ptr(unsigned long long ptr);
+
+#endif

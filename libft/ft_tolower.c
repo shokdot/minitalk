@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: healeksa <healeksa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/02 18:02:14 by healeksa          #+#    #+#             */
-/*   Updated: 2024/04/06 21:03:09 by healeksa         ###   ########.fr       */
+/*   Created: 2024/01/26 16:27:56 by healeksa          #+#    #+#             */
+/*   Updated: 2024/01/26 16:29:00 by healeksa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/headers/libft.h"
-#include <signal.h>
-#include <stdio.h>
-#include <unistd.h>
-
-int	main(void)
+int	ft_tolower(int c)
 {
-	printf("The process id of server is %d\n", (int)getpid());
-	// signal(SIGUSR1, process);
-	// signal(SIGUSR2, process);
-	// printf("\033[0;32m");
-	while (1)
-		;
+	if (c >= 65 && c <= 90)
+		return (c + 32);
+	return (c);
 }

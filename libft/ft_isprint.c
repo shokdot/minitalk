@@ -1,26 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: healeksa <healeksa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/02 18:02:14 by healeksa          #+#    #+#             */
-/*   Updated: 2024/04/06 21:03:09 by healeksa         ###   ########.fr       */
+/*   Created: 2024/01/26 15:54:49 by healeksa          #+#    #+#             */
+/*   Updated: 2024/01/26 15:55:19 by healeksa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/headers/libft.h"
-#include <signal.h>
-#include <stdio.h>
-#include <unistd.h>
-
-int	main(void)
+int	ft_isprint(int c)
 {
-	printf("The process id of server is %d\n", (int)getpid());
-	// signal(SIGUSR1, process);
-	// signal(SIGUSR2, process);
-	// printf("\033[0;32m");
-	while (1)
-		;
+	return (c >= 32 && c <= 126);
 }
