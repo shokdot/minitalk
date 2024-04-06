@@ -6,13 +6,11 @@
 /*   By: healeksa <healeksa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 18:45:11 by healeksa          #+#    #+#             */
-/*   Updated: 2024/04/04 18:13:46 by healeksa         ###   ########.fr       */
+/*   Updated: 2024/04/06 21:15:18 by healeksa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "headers/libft.h"
-#include <stdio.h>
-#include <limits.h>
 
 static int	ft_count_digits(int n)
 {
