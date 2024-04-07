@@ -6,7 +6,7 @@
 /*   By: healeksa <healeksa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 12:14:11 by healeksa          #+#    #+#             */
-/*   Updated: 2024/04/07 20:35:19 by healeksa         ###   ########.fr       */
+/*   Updated: 2024/04/07 21:49:56 by healeksa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,14 @@ int	main(int argc, char **argv)
 
 	if (argc != 3)
 	{
+		ft_printf("\033[0;31m");
 		ft_printf("Invalid process ID or sending message");
 		exit(1);
 	}
 	pid = ft_atoi(argv[1]);
 	if (!pid)
 	{
+		ft_printf("\033[0;31m");
 		ft_printf("Invalid process ID");
 		exit(1);
 	}

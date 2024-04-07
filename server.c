@@ -6,7 +6,7 @@
 /*   By: healeksa <healeksa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 18:02:14 by healeksa          #+#    #+#             */
-/*   Updated: 2024/04/07 20:35:28 by healeksa         ###   ########.fr       */
+/*   Updated: 2024/04/07 22:04:36 by healeksa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,16 @@ void	process(int signal)
 
 int	main(void)
 {
-	ft_printf("The process id of server is %d\n", (int)getpid());
+	ft_printf(" \
+███╗   ███╗██╗███╗   ██╗██╗████████╗ █████╗ ██╗     ██╗  ██╗ \n \
+████╗ ████║██║████╗  ██║██║╚══██╔══╝██╔══██╗██║     ██║ ██╔╝ \n \
+██╔████╔██║██║██╔██╗ ██║██║   ██║   ███████║██║     █████╔╝ \n \
+██║╚██╔╝██║██║██║╚██╗██║██║   ██║   ██╔══██║██║     ██╔═██╗ \n \
+██║ ╚═╝ ██║██║██║ ╚████║██║   ██║   ██║  ██║███████╗██║  ██╗ \n \
+╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝ \
+                                                            ");
+	ft_printf("\n");
+	ft_printf("The process id of the server is %d\n", (int)getpid());
 	signal(SIGUSR1, process);
 	signal(SIGUSR2, process);
 	while (1)
