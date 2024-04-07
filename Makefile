@@ -1,4 +1,4 @@
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 SRC = client.c server.c
 OBJ = $(SRC:.c=.o)
 AR = ar rc
