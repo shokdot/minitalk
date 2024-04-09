@@ -6,7 +6,7 @@
 /*   By: healeksa <healeksa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 19:52:48 by healeksa          #+#    #+#             */
-/*   Updated: 2024/04/09 22:13:42 by healeksa         ###   ########.fr       */
+/*   Updated: 2024/04/09 22:35:38 by healeksa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	process(int signal, siginfo_t *info, void *context)
 	static unsigned char	c = 0;
 
 	(void)context;
-	(void)info;
 	c <<= 1;
 	count++;
 	if (signal == SIGUSR1)

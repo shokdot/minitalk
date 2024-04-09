@@ -6,7 +6,7 @@
 /*   By: healeksa <healeksa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 12:14:11 by healeksa          #+#    #+#             */
-/*   Updated: 2024/04/09 22:13:26 by healeksa         ###   ########.fr       */
+/*   Updated: 2024/04/09 22:42:43 by healeksa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	send_signal(int pid, char *str)
 				kill(pid, SIGUSR1);
 			else
 				kill(pid, SIGUSR2);
-			usleep(100);
+			usleep(50);
 		}
 		j++;
 	}
@@ -36,7 +36,7 @@ void	send_signal(int pid, char *str)
 	while (i--)
 	{
 		kill(pid, SIGUSR2);
-		usleep(100);
+		usleep(50);
 	}
 }
 
