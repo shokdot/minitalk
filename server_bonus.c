@@ -6,20 +6,20 @@
 /*   By: healeksa <healeksa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 19:52:48 by healeksa          #+#    #+#             */
-/*   Updated: 2024/04/08 20:32:13 by healeksa         ###   ########.fr       */
+/*   Updated: 2024/04/09 22:13:42 by healeksa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/headers/libft.h"
 #include <signal.h>
-#include <stdio.h>
-#include <unistd.h>
 
-void	process(int signal)
+void	process(int signal, siginfo_t *info, void *context)
 {
 	static int				count = 0;
 	static unsigned char	c = 0;
 
+	(void)context;
+	(void)info;
 	c <<= 1;
 	count++;
 	if (signal == SIGUSR1)
@@ -30,6 +30,7 @@ void	process(int signal)
 			ft_printf("\n");
 		else
 			ft_printf("%c", (char)c);
+		kill(info->si_pid, SIGUSR1);
 		c = 0;
 		count = 0;
 	}
@@ -37,6 +38,8 @@ void	process(int signal)
 
 int	main(void)
 {
+	struct sigaction	sig;
+
 	ft_printf("\n \
 ███╗   ███╗██╗███╗   ██╗██╗████████╗ █████╗ ██╗     ██╗  ██╗ \n \
 ████╗ ████║██║████╗  ██║██║╚══██╔══╝██╔══██╗██║     ██║ ██╔╝ \n \
@@ -46,8 +49,11 @@ int	main(void)
 ╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝ \
                                                             \n");
 	ft_printf("The process id of the server is %d\n", (int)getpid());
-	signal(SIGUSR1, process);
-	signal(SIGUSR2, process);
+	sig.sa_sigaction = process;
+	sigemptyset(&sig.sa_mask);
+	sig.sa_flags = SA_RESTART;
+	sigaction(SIGUSR1, &sig, NULL);
+	sigaction(SIGUSR2, &sig, NULL);
 	while (1)
 	{
 		pause();

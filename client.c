@@ -6,13 +6,12 @@
 /*   By: healeksa <healeksa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 12:14:11 by healeksa          #+#    #+#             */
-/*   Updated: 2024/04/08 23:57:04 by healeksa         ###   ########.fr       */
+/*   Updated: 2024/04/09 22:13:26 by healeksa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/headers/ft_printf.h"
 #include <signal.h>
-#include <stdio.h>
 
 void	send_signal(int pid, char *str)
 {
@@ -29,7 +28,7 @@ void	send_signal(int pid, char *str)
 				kill(pid, SIGUSR1);
 			else
 				kill(pid, SIGUSR2);
-			usleep(200);
+			usleep(100);
 		}
 		j++;
 	}
@@ -37,7 +36,7 @@ void	send_signal(int pid, char *str)
 	while (i--)
 	{
 		kill(pid, SIGUSR2);
-		usleep(200);
+		usleep(100);
 	}
 }
 

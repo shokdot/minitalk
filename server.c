@@ -6,14 +6,12 @@
 /*   By: healeksa <healeksa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 18:02:14 by healeksa          #+#    #+#             */
-/*   Updated: 2024/04/08 19:53:43 by healeksa         ###   ########.fr       */
+/*   Updated: 2024/04/09 22:13:32 by healeksa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/headers/libft.h"
 #include <signal.h>
-#include <stdio.h>
-#include <unistd.h>
 
 void	process(int signal)
 {

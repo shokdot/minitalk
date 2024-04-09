@@ -6,13 +6,12 @@
 /*   By: healeksa <healeksa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 19:52:38 by healeksa          #+#    #+#             */
-/*   Updated: 2024/04/08 19:53:16 by healeksa         ###   ########.fr       */
+/*   Updated: 2024/04/09 22:13:49 by healeksa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/headers/ft_printf.h"
 #include <signal.h>
-#include <stdio.h>
 
 void	send_signal(int pid, char *str)
 {
@@ -29,7 +28,7 @@ void	send_signal(int pid, char *str)
 				kill(pid, SIGUSR1);
 			else
 				kill(pid, SIGUSR2);
-			usleep(1000);
+			usleep(100);
 		}
 		j++;
 	}
@@ -37,8 +36,14 @@ void	send_signal(int pid, char *str)
 	while (i--)
 	{
 		kill(pid, SIGUSR2);
-		usleep(1000);
+		usleep(100);
 	}
+}
+
+void	feedback(int signal)
+{
+	(void)signal;
+	ft_printf("Character has been sended\n");
 }
 
 int	main(int argc, char **argv)
@@ -51,6 +56,7 @@ int	main(int argc, char **argv)
 		ft_printf("Invalid process ID or sending message");
 		exit(1);
 	}
+	signal(SIGUSR1, feedback);
 	pid = ft_atoi(argv[1]);
 	if (!pid)
 	{
@@ -59,5 +65,8 @@ int	main(int argc, char **argv)
 		exit(1);
 	}
 	send_signal(pid, argv[2]);
+	while (1)
+	{
+	}
 	return (0);
 }
